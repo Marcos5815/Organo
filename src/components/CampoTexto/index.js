@@ -25,10 +25,14 @@ const CampoTexto = (props) => {
 
     const placeholderModificada = `${props.placeholder}...`
 
+    const aoDigitado = (evento) => {
+        props.aoAlterado(evento.target.value)
+    }
+
     return (
         <Campotexto>
             <Label>{props.label}</Label>
-            <Input placeholder={placeholderModificada}/>
+            <Input value={props.valor} onChange={aoDigitado} required={props.obrigatorio} placeholder={placeholderModificada}/>
         </Campotexto>
     )
 }
