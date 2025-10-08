@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Colaborador from "../Colaborador";
+import { useEffect } from "react";
 
 const TimeEstilizado = styled.section`
     text-align: center;
@@ -23,13 +24,16 @@ const TimeColaboradores = styled.div`
 
 
 const Time = (props) => {
+
     return (
 
         props.colaboradores.length > 0 && <TimeEstilizado corSecundaria={props.corSecundaria}>
             <NomeEstilizado corPrimaria={props.corPrimaria}>{props.nome}</NomeEstilizado>
             
             <TimeColaboradores>
+
                 {props.colaboradores.map(colaborador => <Colaborador
+                    key={colaborador.nome}
                     nome={colaborador.nome}
                     cargo={colaborador.cargo}
                     imagem={colaborador.imagem}

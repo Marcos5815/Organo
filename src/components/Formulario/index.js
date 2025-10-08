@@ -2,7 +2,7 @@ import styled from "styled-components"
 import CampoTexto from "../CampoTexto"
 import ListaSuspensa from "../ListaSuspensa"
 import Botao from "../Botao"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const Secao = styled.section`
     display: flex;
@@ -22,13 +22,14 @@ const TituloFormulario = styled.h2``
 
 const Formulario = (props) => {
 
-    const [nome, setNome] = useState('')
-    const [cargo, setCargo] = useState('')
-    const [imagem, setImagem] = useState('')
-    const [time, setTime] = useState('')
+    const [nome, setNome] = useState("")
+    const [cargo, setCargo] = useState("")
+    const [imagem, setImagem] = useState("")
+    const [time, setTime] = useState("")
 
     const aoSalvar = (event) => {
         event.preventDefault()
+
         props.aoColaboradorCadastrado(
             {
                 nome,
@@ -37,6 +38,9 @@ const Formulario = (props) => {
                 time
             }
         )
+
+
+
         setNome('')
         setCargo('')
         setImagem('')
@@ -65,7 +69,7 @@ const Formulario = (props) => {
 
                 <CampoTexto  
                 label="Imagem" 
-                placeholder="Digite o endereço da imagem"
+                placeholder="Digite seu github: 'https://github.com/seuGit.png'"
                 valor={imagem} 
                 aoAlterado={valor => setImagem(valor)} 
                 />
@@ -82,6 +86,8 @@ const Formulario = (props) => {
                 </Botao>
             </Form>
         </Secao>
+
+        
     )
 }
 
