@@ -32,7 +32,10 @@ const CampoTexto = (props) => {
     return (
         <Campotexto>
             <Label>{props.label}</Label>
-            <Input value={props.valor} onChange={aoDigitado} required={props.obrigatorio} placeholder={placeholderModificada}/>
+            <Input value={props.valor} 
+            onChange={aoDigitado} 
+            required={props.obrigatorio} 
+            placeholder={placeholderModificada}/>
         </Campotexto>
     )
 }

@@ -6,12 +6,17 @@ const ColaboradorEstilizado = styled.div`
 
 const Cabecalho = styled.div`
     background-color: #F0F0F0;
+    min-height: 100px;
     border-radius: 10px 10px 0px 0px;
+    display:flex;
+    align-items: center;
+    justify-content: center
 `
 
 const ColaboradorImg = styled.img`
-    width: 100px;
-    border-radius: 50%;
+    width: 95px;
+    border-radius: 100px;
+    height: 85px;
     position: relative;
     bottom: -50%;
 `

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Colaborador from "../Colaborador";
-import { useEffect } from "react";
 
 const TimeEstilizado = styled.section`
     text-align: center;

@@ -2,7 +2,8 @@ import styled from "styled-components"
 import CampoTexto from "../CampoTexto"
 import ListaSuspensa from "../ListaSuspensa"
 import Botao from "../Botao"
-import { useState, useEffect } from "react"
+import { useState } from "react"
+import CampoImagem from "../CampoImagem"
 
 const Secao = styled.section`
     display: flex;
@@ -25,6 +26,7 @@ const Formulario = (props) => {
     const [nome, setNome] = useState("")
     const [cargo, setCargo] = useState("")
     const [imagem, setImagem] = useState("")
+    const [imagemReset, setImagemReset] = useState(Date.now())
     const [time, setTime] = useState("")
 
     const aoSalvar = (event) => {
@@ -45,6 +47,8 @@ const Formulario = (props) => {
         setCargo('')
         setImagem('')
         setTime('')
+
+        setImagemReset(Date.now());
     }
 
     return (
@@ -67,11 +71,10 @@ const Formulario = (props) => {
                 aoAlterado={valor => setCargo(valor)}  
                 />
 
-                <CampoTexto  
-                label="Imagem" 
-                placeholder="Digite seu github: 'https://github.com/seuGit.png'"
-                valor={imagem} 
-                aoAlterado={valor => setImagem(valor)} 
+                <CampoImagem  
+                key={imagemReset}
+                label="Foto de perfil" 
+                salvarImagem={valor => setImagem(valor)} 
                 />
 
                 <ListaSuspensa 
